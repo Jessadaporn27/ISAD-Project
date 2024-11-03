@@ -1,0 +1,76 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #009879;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    background-color: #fff;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="radio"] + label {
+    margin-right: 20px;
+    font-size: 1em;
+}
+
+/* Button Styles */
+button {
+    background-color: #009879;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #007d6d;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}

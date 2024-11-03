@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #009879;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+p {
+    text-align: center;
+    color: #ff0000;
+    font-size: 1.2em;
+}
+
+/* Table Styles */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #009879;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+td {
+    font-size: 1em;
+}
+
+/* Button Styles */
+input[type="submit"] {
+    background-color: #009879;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #007f7f;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        padding: 8px 12px;
+    }
+}

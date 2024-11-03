@@ -31,3 +31,13 @@ document.getElementById('auth-form').addEventListener('submit', function(e) {
         alert("Please fill in both fields.");
     }
 });
+function togglePassengerForm() {
+    var container = document.getElementById("passenger-container");
+    if (container.classList.contains("active")) {
+        container.classList.remove("active");
+        container.style.maxHeight = "0"; // เมื่อปิดจะเลื่อนขึ้น
+    } else {
+        container.classList.add("active");
+        container.style.maxHeight = container.scrollHeight + "px"; // เมื่อเปิดจะเลื่อนลง
+    }
+}

@@ -1,10 +1,10 @@
 <?php
 //register.php
-include_once 'database.php';
+include_once 'db_connection.php';
 include_once 'user.php';
 
-$database = new Database();
-$db = $database->getConnection();
+$db_db_connection = new db_connection();
+$db = $db_db_connection->connect();
 
 $user = new User($db);
 

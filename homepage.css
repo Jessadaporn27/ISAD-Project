@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background: #007bff;
+    background: #009879;
     color: white;
     padding: 20px;
     text-align: center;
@@ -31,12 +31,66 @@ nav ul li a {
     padding: 20px;
 }
 
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1800px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 70px;
+}
+
+.search-options select, 
+.search-options input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+.search-options .flight-type {
+        display: flex;
+        gap: 10px;
+    }
+
+.search-options button {
+    padding: 10px 20px;
+    background-color: #f96332;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+.search-options button:hover {
+    background-color: #e94e1b;
+    }
+
+    @media (max-width: 768px) {
+        .search-options {
+            flex-direction: column;
+        }
+    }
+
 .input-group {
     margin-bottom: 15px;
 }
 
 .btn {
-    background: #007bff;
+    background: #009879;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -57,9 +111,84 @@ nav ul li a {
     width: 30%;
 }
 
+.passenger-btn {
+    padding: 10px 20px;
+    background-color: #f96332;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.passenger-btn:hover {
+    background-color: #e94e1b;
+}
+
+.passenger-container {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.passenger-container.active {
+    display: block;
+    max-height: 500px; /* ปรับตามความสูงของฟอร์ม */
+}
+
+.passenger-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.passenger-row span {
+    font-size: 16px;
+}
+
+.passenger-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.passenger-controls button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #f96332;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.passenger-controls button:hover {
+    background-color: #e94e1b;
+}
+
+.passenger-count {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
 footer {
     text-align: center;
     padding: 10px;
-    background: #007bff;
+    background: #009879;
     color: white;
 }

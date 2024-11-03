@@ -2,28 +2,29 @@
 session_start(); // เริ่มต้น session ที่จุดเริ่มต้นของไฟล์
 
 include_once 'db_connection.php';
-include_once 'user.php';
+include_once 'employee.php';
 
 $db_connection = new db_connection();
 $db = $db_connection->connect();
 
-$user = new User($db);
+$employee = new employee($db);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // รับข้อมูลจากฟอร์ม
-    $user->username = $_POST['username'];
-    $user->password = $_POST['password'];
+    $employee->username = $_POST['username'];
+    $employee->password = $_POST['password'];
 
     // พยายามล็อกอิน
-    if ($user->login()) {
-        $_SESSION['username'] = $user->username;// เริ่มต้น session สำหรับผู้ใช้ที่ล็อกอิน
-        $_SESSION['user_id'] = $user->getUserId(); 
-        header('Location: homepage.php');
+    if ($employee->login()) {
+        $_SESSION['username'] = $employee->username;
+        $_SESSION['user_id'] = $employee->getUserId();
+        header('Location: Airline_staff.php');
         exit();
     } else {
+        // แสดงข้อความความผิดพลาดในฟอร์มล็อกอิน
         echo "<p style='color: red;'>Login failed. Please check your username and password.</p>";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,13 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <span class="icon">&#128274;</span>
                 </div>
                 <button type="submit" class="btn" id="submit-btn">Login</button>
-            
-                <p class="signup-text" id="toggle-text">Or Sign Up Using <a href="#" id="toggle-form">SIGN UP</a></p>
             </form>
             
         </div>
     </div>
 
-    <script src="script.js" defer></script>
 </body>
 </html>

@@ -1,53 +1,14 @@
 <?php
 // user.php
-class User {
+class employee {
     private $conn;
-    private $table_name = "users";
+    private $table_name = "employee";
 
     public $username;
     public $password;
 
     public function __construct($db) {
         $this->conn = $db;
-    }
-
-    public function isUsernameExist() {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE username=?";
-        $stmt = $this->conn->prepare($query);
-
-        $this->username = htmlspecialchars(strip_tags($this->username));
-        $stmt->bind_param("s", $this->username); // ใช้ bind_param กับ mysqli สำหรับ "s" (string)
-
-        $stmt->execute();
-        $stmt->store_result(); // เก็บผลลัพธ์เพื่อดูจำนวนแถว
-
-        if ($stmt->num_rows > 0) {
-            return true; // Username exists
-        }
-
-        return false; // Username does not exist
-    }
-
-    public function register() {
-        if ($this->isUsernameExist()) {
-            return false; // Username already exists
-        }
-
-        $query = "INSERT INTO " . $this->table_name . " (username, password) VALUES (?, ?)";
-        $stmt = $this->conn->prepare($query);
-
-        $this->username = htmlspecialchars(strip_tags($this->username));
-        $this->password = htmlspecialchars(strip_tags($this->password));
-
-        $this->password = password_hash($this->password, PASSWORD_BCRYPT);
-
-        $stmt->bind_param("ss", $this->username, $this->password); // ใช้ bind_param สำหรับทั้ง username และ password
-
-        if ($stmt->execute()) {
-            return true;
-        }
-
-        return false;
     }
 
     public function getUserId() {
@@ -85,7 +46,7 @@ class User {
             $result = $stmt->get_result(); // ดึงผลลัพธ์ที่ได้มา
             $user = $result->fetch_assoc(); // ดึงข้อมูลของผู้ใช้
 
-            if ($user && password_verify($this->password, $user['password'])) {
+            if ($user && ($this->password)) {
                 return true;
             } else {
                 echo "Invalid username or password."; // แสดงข้อความเมื่อข้อมูลไม่ถูกต้อง
@@ -96,3 +57,5 @@ class User {
     }
 }
 ?>
+
+
